@@ -40,6 +40,12 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dataRow = dt.Rows[i];
+                Console.WriteLine($"{dataRow["StudentId"]} {dataRow["StudentName"]} {dataRow["MobileNumber"]}");
+            }
+
             connection.Close(); 
 
         }

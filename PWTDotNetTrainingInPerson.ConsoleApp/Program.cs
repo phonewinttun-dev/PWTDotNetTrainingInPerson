@@ -74,7 +74,9 @@ using System.Net.Http.Headers;
 
 //connection.Close();
 
-AdoDotNetService adoDotNetService = new AdoDotNetService();
+//AdoDotNetService adoDotNetService = new AdoDotNetService();
+
+//adoDotNetService.Read();
 //adoDotNetService.Create();
 //adoDotNetService.Update();
-adoDotNetService.Delete();
+//adoDotNetService.Delete();
