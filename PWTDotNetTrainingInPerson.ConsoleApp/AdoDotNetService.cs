@@ -40,6 +40,8 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
+            connection.Close(); 
+
         }
 
         public void Create() {
@@ -55,12 +57,12 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
            ,[MobileNumber]
            ,[DeleteFlag])
      VALUES
-           (<StudentName, nvarchar(100),>
-           ,<FatherName, nvarchar(100),>
-           ,<DateOfBirth, datetime,>
-           ,<Address, nvarchar(255),>
-           ,<MobileNumber, nvarchar(20),>
-           ,<DeleteFlag, bit,>)";
+           ('Lin'
+           ,'U Zaw'
+           ,2005-11-11
+           ,'Yangon'
+           ,'09698765431'
+           ,0)";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             int result = cmd.ExecuteNonQuery();
@@ -76,13 +78,8 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
             //connection အဖွင့်အပိတ်ကြားမှာ query တွေအလုပ်လုပ်မယ်
 
             string query = @"UPDATE [dbo].[tbl_students]
-   SET [StudentName] = <StudentName, nvarchar(100),>
-      ,[FatherName] = <FatherName, nvarchar(100),>
-      ,[DateOfBirth] = <DateOfBirth, datetime,>
-      ,[Address] = <Address, nvarchar(255),>
-      ,[MobileNumber] = <MobileNumber, nvarchar(20),>
-      ,[DeleteFlag] = <DeleteFlag, bit,>
- WHERE <Search Conditions,,>";
+                             SET [DeleteFlag] = 0
+                             WHERE [StudentID] = 1";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             int result = cmd.ExecuteNonQuery();
@@ -97,9 +94,9 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
             connection.Open();
             //connection အဖွင့်အပိတ်ကြားမှာ query တွေအလုပ်လုပ်မယ်
 
-            string query = @"UPDATE FROM [dbo].[tbl_students]
-SET [DeleteFlag] = 1
-      WHERE <Search Conditions,,>";
+            string query = @"UPDATE [dbo].[tbl_students]
+                             SET [DeleteFlag] = 1
+                             WHERE [StudentID] = 3";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             int result = cmd.ExecuteNonQuery();

@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.Data.SqlClient;
+using PWTDotNetTrainingInPerson.ConsoleApp;
 using System.Data;
 using System.Net.Http.Headers;
 
@@ -72,3 +73,8 @@ using System.Net.Http.Headers;
 
 
 //connection.Close();
+
+AdoDotNetService adoDotNetService = new AdoDotNetService();
+//adoDotNetService.Create();
+//adoDotNetService.Update();
+adoDotNetService.Delete();
