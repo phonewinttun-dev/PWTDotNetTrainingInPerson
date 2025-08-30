@@ -67,15 +67,49 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
 
             db.Close();
 
-            string message = result > 0 ? "Insert successful" : "Insert failed";
+            string message = result > 0 ? "Insert successful!" : "Insert failed!";
             Console.WriteLine(message);
 
 
         }
 
-        public void Update() { }
+        public void Update() 
+        { 
+            using IDbConnection db = new SqlConnection(sb.ConnectionString);
+            
+            db.Open();
 
-        public void Delete() { }
+            int result = db.Execute(@"UPDATE [dbo].[tbl_students]
+                                       SET [StudentName] = 'Zaw'
+                                          ,[FatherName] = 'U Kyaw'
+                                          ,[DateOfBirth] = '2000-01-01'
+                                          ,[Address] = 'Myitkyina'
+                                          ,[MobileNumber] = '09999999999'
+                                          ,[DeleteFlag] = 0
+                                     WHERE StudentID = 1");
+            db.Close();
+
+            string message = result > 0 ? "Update successful!" : "Update failed!";
+
+            Console.WriteLine(message);
+        }
+
+        public void Delete() 
+        { 
+           using IDbConnection db = new SqlConnection(sb.ConnectionString);
+
+            db.Open();
+
+            int result = db.Execute(@"UPDATE [dbo].[tbl_students]
+                             SET [DeleteFlag] = 1
+                             WHERE [StudentID] = 2");
+
+            db.Close();
+
+            string message = result > 0 ? "Delete successful!" : "Delete failed!";
+
+            Console.WriteLine(message);
+        }
     }
 }
 

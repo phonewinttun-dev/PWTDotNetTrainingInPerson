@@ -4,9 +4,6 @@ using PWTDotNetTrainingInPerson.ConsoleApp;
 using System.Data;
 using System.Net.Http.Headers;
 
-DapperService dapperService = new DapperService();
-dapperService.Read();
-
 // 'Ctrl + .' on SqlConnectionStringBuilder
 
 // comment - Ctrl + K + C
@@ -108,4 +105,7 @@ dapperService.Read();
 //using IDbConnection db = new SqlConnection(sb.ConnectionString);
 //db.Open();
 
-
+DapperService dapperService = new DapperService();
+//dapperService.Read();
+//dapperService.Create();
+dapperService.Update();
