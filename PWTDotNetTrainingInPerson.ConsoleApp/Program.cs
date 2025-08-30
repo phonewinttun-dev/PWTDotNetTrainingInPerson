@@ -4,6 +4,9 @@ using PWTDotNetTrainingInPerson.ConsoleApp;
 using System.Data;
 using System.Net.Http.Headers;
 
+DapperService dapperService = new DapperService();
+dapperService.Read();
+
 // 'Ctrl + .' on SqlConnectionStringBuilder
 
 // comment - Ctrl + K + C
@@ -44,7 +47,8 @@ using System.Net.Http.Headers;
 
 //Console.ReadKey();
 
-//SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder() {
+//SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder()
+//{
 //    DataSource = ".",
 //    InitialCatalog = "PWTDotNetTrainingInPerson",
 //    UserID = "sa",
@@ -80,3 +84,28 @@ using System.Net.Http.Headers;
 //adoDotNetService.Create();
 //adoDotNetService.Update();
 //adoDotNetService.Delete();
+
+
+
+//SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder()
+//{
+//    DataSource = ".",
+//    InitialCatalog = "PWTDotNetTrainingInPerson",
+//    UserID = "sa",
+//    Password = "sasa@123",
+//    TrustServerCertificate = true,
+//};
+
+//old flow
+//using (IDbConnection db = new SqlConnection(sb.ConnectionString))
+//{
+//    db.Open();
+//    //db work
+//} //db.Dispose() will be called automatically
+
+//using dapper
+//IDbConnection is interface, not class
+//using IDbConnection db = new SqlConnection(sb.ConnectionString);
+//db.Open();
+
+

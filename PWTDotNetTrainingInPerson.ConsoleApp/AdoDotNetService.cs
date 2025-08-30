@@ -27,26 +27,34 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
             //connection အဖွင့်အပိတ်ကြားမှာ query တွေအလုပ်လုပ်မယ်
 
             string query = @"SELECT [StudentID]
-      ,[StudentName]
-      ,[FatherName]
-      ,[DateOfBirth]
-      ,[Address]
-      ,[MobileNumber]
-      ,[DeleteFlag]
-  FROM [dbo].[tbl_students]";
+                                  ,[StudentName]
+                                  ,[FatherName]
+                                  ,[DateOfBirth]
+                                  ,[Address]
+                                  ,[MobileNumber]
+                                  ,[DeleteFlag]
+                              FROM [dbo].[tbl_students]";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            //{
+            //    DataRow dataRow = dt.Rows[i];
+            //    Console.WriteLine($"{dataRow["StudentId"]} {dataRow["StudentName"]} {dataRow["MobileNumber"]}");
+            //}
+
+            connection.Close();
+
+            //should show data outside of connection open and close
+
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DataRow dataRow = dt.Rows[i];
                 Console.WriteLine($"{dataRow["StudentId"]} {dataRow["StudentName"]} {dataRow["MobileNumber"]}");
             }
-
-            connection.Close(); 
 
         }
 
@@ -56,19 +64,19 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
             //connection အဖွင့်အပိတ်ကြားမှာ query တွေအလုပ်လုပ်မယ်
 
             string query = @"INSERT INTO [dbo].[tbl_students]
-           ([StudentName]
-           ,[FatherName]
-           ,[DateOfBirth]
-           ,[Address]
-           ,[MobileNumber]
-           ,[DeleteFlag])
-     VALUES
-           ('Lin'
-           ,'U Zaw'
-           ,2005-11-11
-           ,'Yangon'
-           ,'09698765431'
-           ,0)";
+                                               ([StudentName]
+                                               ,[FatherName]
+                                               ,[DateOfBirth]
+                                               ,[Address]
+                                               ,[MobileNumber]
+                                               ,[DeleteFlag])
+                                         VALUES
+                                               ('Lin'
+                                               ,'U Zaw'
+                                               ,2005-11-11
+                                               ,'Yangon'
+                                               ,'09698765431'
+                                               ,0)";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             int result = cmd.ExecuteNonQuery();
