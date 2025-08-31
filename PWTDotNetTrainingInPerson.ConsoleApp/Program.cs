@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using PWTDotNetTrainingInPerson.ConsoleApp;
+using PWTDotNetTrainingInPersonBatch1_1.ConsoleApp;
 using System.Data;
 using System.Net.Http.Headers;
 
@@ -105,7 +107,53 @@ using System.Net.Http.Headers;
 //using IDbConnection db = new SqlConnection(sb.ConnectionString);
 //db.Open();
 
-DapperService dapperService = new DapperService();
+//DapperService dapperService = new DapperService();
 //dapperService.Read();
 //dapperService.Create();
-dapperService.Update();
+//dapperService.Update();
+//dapperService.Delete();
+
+//AppDbContext db = new AppDbContext();
+//List<StudentDTO> lst = db.Students.ToList();
+//foreach (var item in lst)
+//{
+//    //string a = $"dsnfasid{item.StudentNo}fnsaidfasfnsanf";
+//    Console.WriteLine($"{item.StudentID} - {item.StudentName}");
+//}
+
+//StudentDTO student = new StudentDTO()
+//{
+//    StudentID = 10,
+//    Address = "Taunggyi",
+//    DateOfBirth = new DateTime(2000, 1, 1), // 1900-01-01 12:00:00 AM
+//    //DeleteFlag = false,
+//    FatherName = "Father",
+//    MobileNumber = "0912345678",
+//    StudentName = "Tun"
+//};
+
+//db.Students.Add(student);
+//int result = db.SaveChanges();
+
+//StudentDTO? editStudent = db.Students.Where(x => x.StudentID == 6).FirstOrDefault();
+//if (editStudent is not null)
+//{
+//    editStudent.FatherName = "New Father Name";
+//    db.SaveChanges();
+//}
+
+//StudentDTO? removeStudent = db.Students.Where(x => x.StudentID == 5).FirstOrDefault();
+//if (removeStudent is not null)
+//{
+//    db.Students.Remove(removeStudent);
+//    db.SaveChanges();
+//}
+
+EFcoreService ef = new EFcoreService();
+ef.Read();
+//ef.Create();
+//ef.Update();
+//ef.Delete();
+
+
+//Console.ReadLine();
