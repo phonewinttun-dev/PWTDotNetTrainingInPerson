@@ -59,10 +59,10 @@ namespace PWTDotNetTrainingInPerson.ConsoleApp
 
         public void Delete() 
         {
-            StudentDTO? removeStudent = db.Students.Where(x => x.StudentID == 5).FirstOrDefault();
+            StudentDTO? removeStudent = db.Students.Where(x => x.StudentID == 3).FirstOrDefault();
             if (removeStudent is not null)
             {
-                db.Students.Remove(removeStudent);
+                removeStudent.DeleteFlag = true;
                 int result = db.SaveChanges();
                 string message = result > 0 ? "Delete Successful!" : "Delete Failed!";
                 Console.WriteLine(message);
